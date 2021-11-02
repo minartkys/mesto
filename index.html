@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Mesto</title>
+</head>
+
+<body>
+  <div class="page">
+    <header class="header">
+      <img class="header__logo" src="./images/logo.bmp" alt="Логотип">
+      <div class="header__line"></div>
+    </header>
+
+    <main class="content">
+      <section class="profile">
+        <div class="profile__block">
+          <img class="profile__avatar" src="./images/a7233788306cac3effd4b76fc303b493.jpg" alt="Аватар">
+          <div class="profile__info">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button class="profile__button"></button>
+            <p class="profile__text">Исследователь океана</p>
+          </div>
+        </div>
+        <button class="profile__button-add"></button>
+      </section>
+
+      <section class="elements">
+        <div class="element">
+          <img class="element__photo" src="./images/Алтай.jpg" alt="Алтай">
+          <div class="element__group">
+            <h2 class="element__title">Алтай</h2>
+            <button class="element__like"></button>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__photo" src="./images/Гора-эльбрус.jpg" alt="Гора Эльбрус">
+          <div class="element__group">
+            <h2 class="element__title">Гора Эльбрус</h2>
+            <button class="element__like"></button>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__photo" src="./images/Карачаево-Черкесск.jpg" alt="Карачаево-Черкесск">
+          <div class="element__group">
+            <h2 class="element__title">Карачаево-Черкесск</h2>
+            <button class="element__like"></button>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__photo" src="./images/Куршская-коса.jpg" alt="Куршская коса">
+          <div class="element__group">
+            <h2 class="element__title">Куршская коса</h2>
+            <button class="element__like"></button>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__photo" src="./images/домбай.jpg" alt="Домбай">
+          <div class="element__group">
+            <h2 class="element__title">Домбай</h2>
+            <button class="element__like"></button>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__photo" src="./images/Lake-Turgoyak.jpg" alt="Озеро Тургояк">
+          <div class="element__group">
+            <h2 class="element__title">Озеро Тургояк</h2>
+            <button class="element__like"></button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__text">© 2020 Mesto Russia</p>
+    </footer>
+
+    <section class="popup popup_opened">
+      <div class="popup__container">
+        <button class="popup__button-close"></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <input class="popup__name" type="text" value="Жак-Ив Кусто">
+        <input class="popup__text" type="text" value="Исследователь океана">
+        <button class="popup__button-save">Сохранить</button>
+      </div>
+    </section>
+
+  </div>
+  <script src="./scripts/script.js"></script>
+</body>
+
+</html>
