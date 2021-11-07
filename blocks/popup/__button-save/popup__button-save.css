@@ -3,8 +3,8 @@
   width: 358px;
   height: 50px;
   border: none;
+  border-radius: 2px;
   background-color: black;
-  font-family: Inter;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -12,6 +12,7 @@
   text-align: center;
   color: #ffffff;
   transition: opacity 0.5s ease-in-out;
+  margin-top: 18px;
 }
 @media (max-width: 600px) {
   .popup__button-save {

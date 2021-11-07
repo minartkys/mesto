@@ -11,8 +11,7 @@
 <body>
   <div class="page">
     <header class="header">
-      <img class="header__logo" src="./images/logo.bmp" alt="Логотип">
-      <div class="header__line"></div>
+      <img class="header__logo" src="./images/Logo.svg" alt="Логотип">
     </header>
 
     <main class="content">
@@ -21,11 +20,11 @@
           <img class="profile__avatar" src="./images/a7233788306cac3effd4b76fc303b493.jpg" alt="Аватар">
           <div class="profile__info">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button class="profile__button"></button>
+            <button type="button" class="profile__button"></button>
             <p class="profile__text">Исследователь океана</p>
           </div>
         </div>
-        <button class="profile__button-add"></button>
+        <button type="button" class="profile__button-add"></button>
       </section>
 
       <section class="elements">
@@ -33,7 +32,7 @@
           <img class="element__photo" src="./images/Алтай.jpg" alt="Алтай">
           <div class="element__group">
             <h2 class="element__title">Алтай</h2>
-            <button class="element__like"></button>
+            <button type="button" class="element__like"></button>
           </div>
         </div>
         <div class="element">
@@ -78,13 +77,15 @@
       <p class="footer__text">© 2020 Mesto Russia</p>
     </footer>
 
-    <section class="popup popup_opened">
+    <section class="popup">
       <div class="popup__container">
-        <button class="popup__button-close"></button>
+        <button type="button" class="popup__button-close"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input class="popup__name" type="text" value="Жак-Ив Кусто">
-        <input class="popup__text" type="text" value="Исследователь океана">
-        <button class="popup__button-save">Сохранить</button>
+        <form class="popup__form" name="edit-form">
+          <input name="edit-name" class="popup__input edit-name" type="text">
+          <input name="edit-profession" class="popup__input edit-profession" type="text">
+          <button type="submit" class="popup__button-save">Сохранить</button>
+        </form>
       </div>
     </section>
 

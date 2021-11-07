@@ -3,8 +3,8 @@
   margin-left: 30px;
   max-width: 336px;
   display: grid;
-  grid-template-columns: 294px 24px;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 24px;
+  grid-template-rows: 39px 18px;
   gap: 16px 18px;
 }
 @media (max-width: 600px) {

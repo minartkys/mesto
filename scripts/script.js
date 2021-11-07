@@ -1,27 +1,29 @@
-let popup = document.querySelector('.popup');
-let openPopupButtons = document.querySelector('.profile__button');
-let closePopupButtons = document.querySelector('.popup__button-close');
-let savePopupButtons = document.querySelector('.popup__button-save');
-let profileName = document.querySelector('.profile__name');
-let profileText = document.querySelector('.profile__text');
-let popupName = document.querySelector('.popup__name');
-let popupText = document.querySelector('.popup__text');
+const popup = document.querySelector('.popup');
+const openPopupButtons = document.querySelector('.profile__button');
+const closePopupButtons = document.querySelector('.popup__button-close');
+const savePopupButtons = document.querySelector('.popup__form');
+const popupName = document.querySelector('.edit-name');
+const popupText = document.querySelector('.edit-profession');
+const profileName = document.querySelector('.profile__name');
+const profileText = document.querySelector('.profile__text');
 
-popup.classList.remove('popup_opened');
-
-openPopupButtons.addEventListener('click', addFunction)
-function addFunction(){
+function addPopup(){
   popup.classList.add('popup_opened');
-};
+  popupName.value = profileName.textContent;
+  popupText.value = profileText.textContent;
+}
 
-closePopupButtons.addEventListener('click', closeFunction)
-function closeFunction(){
+function closePopup(){
   popup.classList.remove('popup_opened');
-};
+}
 
-savePopupButtons.addEventListener('click', saveFunction)
-function saveFunction(){
+function savePopup(evt){
+  evt.preventDefault();
   profileName.textContent = popupName.value;
   profileText.textContent = popupText.value;
-  popup.classList.remove('popup_opened');
-};
+  closePopup();
+}
+
+openPopupButtons.addEventListener('click', addPopup);
+closePopupButtons.addEventListener('click', closePopup);
+savePopupButtons.addEventListener('submit', savePopup);

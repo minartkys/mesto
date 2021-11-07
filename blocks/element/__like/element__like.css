@@ -1,6 +1,6 @@
 .element__like {
   background-color: #ffffff;
-  background-image: url(../../../images/сердце.png);
+  background-image: url(../../../images/like.svg);
   height: 19px;
   width: 22px;
   background-repeat: no-repeat;
@@ -17,5 +17,5 @@
 }
 .element__like:active {
   opacity: 1;
-  background-image: url(../../../images/Union.png);
+  background-image: url(../../../images/Like1.svg);
 }
