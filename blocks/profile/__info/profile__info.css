@@ -10,8 +10,8 @@
 @media (max-width: 600px) {
   .profile__info {
     grid-template-columns: 189px 18px;
-    grid-template-rows: 26px 14px;
+    grid-template-rows: 38px 18px;
     margin-left: 0;
-    gap: 14px 10px;
+    gap: 2px 10px;
   }
 }
