@@ -1,6 +1,7 @@
 .profile__button {
   padding: 0;
   margin: 0;
+  margin-bottom: 11px;
   background-color: #000000;
   background-image: url(../../../images/edit.svg);
   background-repeat: no-repeat;
