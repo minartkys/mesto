@@ -28,48 +28,6 @@
       </section>
 
       <section class="elements">
-        <div class="element">
-          <img class="element__photo" src="./images/Алтай.jpg" alt="Алтай">
-          <div class="element__group">
-            <h2 class="element__title">Алтай</h2>
-            <button type="button" class="element__like"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__photo" src="./images/Гора-эльбрус.jpg" alt="Гора Эльбрус">
-          <div class="element__group">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <button class="element__like"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__photo" src="./images/Карачаево-Черкесск.jpg" alt="Карачаево-Черкесск">
-          <div class="element__group">
-            <h2 class="element__title">Карачаево-Черкесск</h2>
-            <button class="element__like"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__photo" src="./images/Куршская-коса.jpg" alt="Куршская коса">
-          <div class="element__group">
-            <h2 class="element__title">Куршская коса</h2>
-            <button class="element__like"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__photo" src="./images/домбай.jpg" alt="Домбай">
-          <div class="element__group">
-            <h2 class="element__title">Домбай</h2>
-            <button class="element__like"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__photo" src="./images/Lake-Turgoyak.jpg" alt="Озеро Тургояк">
-          <div class="element__group">
-            <h2 class="element__title">Озеро Тургояк</h2>
-            <button class="element__like"></button>
-          </div>
-        </div>
       </section>
     </main>
 
@@ -77,7 +35,7 @@
       <p class="footer__text">© 2020 Mesto Russia</p>
     </footer>
 
-    <section class="popup">
+    <section class="popup popup_type_edit">
       <div class="popup__container">
         <button type="button" class="popup__button-close"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
@@ -89,7 +47,38 @@
       </div>
     </section>
 
+    <section class="popup popup_type_card">
+      <div class="popup__container">
+        <button type="button" class="popup__button-close"></button>
+        <h2 class="popup__title">Новое место</h2>
+        <form class="popup__form popup__form_card" name="edit-form">
+          <input name="edit-name" class="popup__input card__name" placeholder="Название" type="text">
+          <input name="edit-profession" class="popup__input card__url" placeholder="Ссылка на картинку" type="url">
+          <button type="submit" class="popup__button-save">Создать</button>
+        </form>
+      </div>
+    </section>
   </div>
+
+  <section class="popup popup_photo">
+    <div class="popup__photo-container">
+      <button type="button" class="popup__button-close"></button>
+      <img class="popup__image" src="." alt="">
+      <h2 class="popup__photo-name"></h2>
+    </div>
+  </section>
+
+  <template class="template">
+    <div class="element">
+      <button class="element__delete"></button>
+      <img class="element__photo" src="." alt="">
+      <div class="element__group">
+        <h2 class="element__title"></h2>
+        <button class="element__like"></button>
+      </div>
+    </div>
+  </template>
+
   <script src="./scripts/script.js"></script>
 </body>
 
