@@ -11,8 +11,8 @@ const popupText = document.querySelector(".edit-profession");
 const profileName = document.querySelector(".profile__name");
 const profileText = document.querySelector(".profile__text");
 const openPopupButtonsCard = document.querySelector(".profile__button-add");
-const popupCardName = popupTypeCard.querySelector(".card__name");
-const popupCardUrl = popupTypeCard.querySelector(".card__url");
+const popupCardName = popupTypeCard.querySelector(".card-name");
+const popupCardUrl = popupTypeCard.querySelector(".card-url");
 
 function addPopup() {
   popupTypeEdit.classList.add("popup_opened");
