@@ -7,8 +7,8 @@ const closePopupProfileButton = popupTypeEdit.querySelector(
 const closePopupCardButton = popupTypeCard.querySelector(
   ".popup__button-close"
 );
-const savePopupFormButton = popupTypeEdit.querySelector(".popup__form");
-const savePopupCardFormButton = popupTypeCard.querySelector(".popup__form");
+const formEditProfile = popupTypeEdit.querySelector(".popup__form");
+const formCreateCard = popupTypeCard.querySelector(".popup__form");
 const inputProfileName = document.querySelector(".popup__input_type_edit-name");
 const inputProfileJob = document.querySelector(".popup__input_edit-profession");
 const profileName = document.querySelector(".profile__name");
@@ -50,8 +50,8 @@ openPopupProfileButton.addEventListener("click", openPopupProfile);
 closePopupProfileButton.addEventListener("click", () =>
   closePopup(popupTypeEdit)
 );
-savePopupFormButton.addEventListener("submit", handleProfileFormSubmit);
-savePopupCardFormButton.addEventListener("submit", handleCardFormSubmit);
+formEditProfile.addEventListener("submit", handleProfileFormSubmit);
+formCreateCard.addEventListener("submit", handleCardFormSubmit);
 
 const initialCards = [
   {
@@ -96,16 +96,16 @@ const createCard = (item) => {
   }
   buttonLike.addEventListener("click", likeCard);
 
-  function openPhoto(photo) {
+  function openPhoto(item) {
     openPopup(popupPhoto);
-    photo.querySelector(".popup__image").src = item.link;
-    photo.querySelector(".popup__image").alt = item.name;
-    photo.querySelector(".popup__photo-name").textContent = item.name;
+    popupPhoto.querySelector(".popup__image").src = item.link; 
+    popupPhoto.querySelector(".popup__image").alt = item.name; 
+    popupPhoto.querySelector(".popup__photo-name").textContent = item.name; 
   }
 
   newCard
     .querySelector(".element__photo")
-    .addEventListener("click", () => openPhoto(popupPhoto));
+    .addEventListener("click", () => openPhoto(item));
 
   return newCard;
 };
