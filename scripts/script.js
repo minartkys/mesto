@@ -17,6 +17,15 @@ const openPopupCardButton = document.querySelector(".profile__button-add");
 const inputCardName = popupTypeCard.querySelector(".popup__input_card-name");
 const inputCardUrl = popupTypeCard.querySelector(".popup__input_card-url");
 
+enableValidation({
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button-save",
+  inactiveButtonClass: "popup__button-save_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+});
+
 function openPopup(popup) {
   popup.classList.add("popup_opened");
 }
@@ -35,7 +44,7 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = inputProfileName.value;
   profileText.textContent = inputProfileJob.value;
-  closePopup(popupTypeEdit);
+  closePopup(popupTypeEdit);  
 }
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
@@ -98,9 +107,9 @@ const createCard = (item) => {
 
   function openPhoto(item) {
     openPopup(popupPhoto);
-    popupPhoto.querySelector(".popup__image").src = item.link; 
-    popupPhoto.querySelector(".popup__image").alt = item.name; 
-    popupPhoto.querySelector(".popup__photo-name").textContent = item.name; 
+    popupPhoto.querySelector(".popup__image").src = item.link;
+    popupPhoto.querySelector(".popup__image").alt = item.name;
+    popupPhoto.querySelector(".popup__photo-name").textContent = item.name;
   }
 
   newCard
@@ -125,3 +134,17 @@ const result = initialCards.map((item) => {
   return createCard(item);
 });
 elements.append(...result);
+
+document.addEventListener("keydown", function (evt) {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup);
+  }
+});
+
+document.addEventListener("mousedown", function (evt) {
+  const openedPopup = document.querySelector(".popup_opened");
+  if (evt.target === openedPopup) {
+    closePopup(openedPopup);
+  }
+});
