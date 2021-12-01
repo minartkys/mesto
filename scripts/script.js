@@ -28,10 +28,14 @@ enableValidation({
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+  document.addEventListener("keydown", clickEscape);
+  document.addEventListener("mousedown", clickOverlay);
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  document.removeEventListener("keydown", clickEscape);
+  document.removeEventListener("mousedown", clickOverlay);
 }
 
 function openPopupProfile() {
@@ -44,7 +48,7 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = inputProfileName.value;
   profileText.textContent = inputProfileJob.value;
-  closePopup(popupTypeEdit);  
+  closePopup(popupTypeEdit);
 }
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
@@ -135,16 +139,16 @@ const result = initialCards.map((item) => {
 });
 elements.append(...result);
 
-document.addEventListener("keydown", function (evt) {
-  if (evt.key === "Escape") {
-    const openedPopup = document.querySelector(".popup_opened");
-    closePopup(openedPopup);
-  }
-});
-
-document.addEventListener("mousedown", function (evt) {
+function clickOverlay(evt) {
   const openedPopup = document.querySelector(".popup_opened");
   if (evt.target === openedPopup) {
     closePopup(openedPopup);
   }
-});
+}
+
+function clickEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup);
+  }
+}

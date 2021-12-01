@@ -71,8 +71,8 @@ const setEventListeners = (formElement, config) => {
 
     */
     const { formSelector, ...props } = config;
-    const inputList = Array.from(document.querySelectorAll(formSelector));
-    inputList.forEach((formElement) => {
+    const formList = Array.from(document.querySelectorAll(formSelector));
+    formList.forEach((formElement) => {
         formElement.addEventListener('submit', (evt) => {
             evt.preventDefault();
         });
