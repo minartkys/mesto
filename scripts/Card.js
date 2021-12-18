@@ -16,16 +16,15 @@ export class Card {
     evt.target.closest(".element").remove();
   }
 
-  _likeCard() {
-    const buttonLike = this._element.querySelector(".element__like");
-    buttonLike.classList.toggle("element__like-active");
+  _likeCard(evt) {
+    evt.target.classList.toggle("element__like-active");
   }
   _setEventListeners() {
     const buttonDeleteCard = this._element.querySelector(".element__delete");
     buttonDeleteCard.addEventListener("click", this._deleteCard);
     this._cardImage.addEventListener("click", () => this._openPhoto(this._name, this._link));
     const buttonLike = this._element.querySelector(".element__like");
-    buttonLike.addEventListener("click", () => this._likeCard());
+    buttonLike.addEventListener("click", this._likeCard);
   }
   createCard() {
     this._element = this._newCard();
