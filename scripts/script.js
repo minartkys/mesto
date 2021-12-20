@@ -24,8 +24,9 @@ const template = document.querySelector(".template");
 const popupPhoto = document.querySelector(".popup_type_photo");
 const closePopupPhotoButton = popupPhoto.querySelector(".popup__button-close");
 const elements = document.querySelector(".elements");
+const popupImage = popupPhoto.querySelector(".popup__image");
 
-const enableValidation = {
+const formValidationObject = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button-save",
@@ -61,7 +62,7 @@ function handleProfileFormSubmit(evt) {
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
   elements.prepend(
-    addCard({ name: inputCardName.value, link: inputCardUrl.value })
+    createCard({ name: inputCardName.value, link: inputCardUrl.value })
   );
   closePopup(popupTypeCard);
 }
@@ -78,18 +79,18 @@ closePopupPhotoButton.addEventListener("click", () => closePopup(popupPhoto));
 
 function openPhoto(name, link) {
   openPopup(popupPhoto);
-  popupPhoto.querySelector(".popup__image").src = link;
-  popupPhoto.querySelector(".popup__image").alt = name;
+  popupImage.src = link;
+  popupImage.alt = name;
   popupPhoto.querySelector(".popup__photo-name").textContent = name;
 }
 
-function addCard(item) {
+function createCard(item) {
   const card = new Card(item, template, openPhoto);
-  return card.createCard();
+  return card.generateCard();
 }
 
 const result = initialCards.map((item) => {
-  return addCard(item);
+  return createCard(item);
 });
 elements.append(...result);
 
@@ -107,8 +108,8 @@ function clickEscape(evt) {
   }
 }
 
-const validPopupTypeEdit = new FormValidator(formEditProfile, enableValidation);
+const validPopupTypeEdit = new FormValidator(formEditProfile, formValidationObject);
 validPopupTypeEdit.enableValidation();
 
-const validPopupTypeCard = new FormValidator(formCreateCard, enableValidation);
+const validPopupTypeCard = new FormValidator(formCreateCard, formValidationObject);
 validPopupTypeCard.enableValidation();

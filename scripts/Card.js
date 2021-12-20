@@ -1,9 +1,9 @@
 export class Card {
-  constructor(item, template, OpenPhoto) {
+  constructor(item, template, openPhoto) {
     this._link = item.link;
     this._name = item.name;
     this._template = template;
-    this._openPhoto = OpenPhoto;
+    this._openPhoto = openPhoto;
   }
   _newCard() {
     const newCard = this._template.content
@@ -12,8 +12,9 @@ export class Card {
     return newCard;
   }
   
-  _deleteCard(evt) {
-    evt.target.closest(".element").remove();
+  _deleteCard() {
+    this._element.remove()
+    this._element = null;
   }
 
   _likeCard(evt) {
@@ -21,12 +22,12 @@ export class Card {
   }
   _setEventListeners() {
     const buttonDeleteCard = this._element.querySelector(".element__delete");
-    buttonDeleteCard.addEventListener("click", this._deleteCard);
+    buttonDeleteCard.addEventListener("click", () => this._deleteCard());
     this._cardImage.addEventListener("click", () => this._openPhoto(this._name, this._link));
     const buttonLike = this._element.querySelector(".element__like");
     buttonLike.addEventListener("click", this._likeCard);
   }
-  createCard() {
+  generateCard() {
     this._element = this._newCard();
     this._cardImage = this._element.querySelector(".element__photo");
     this._cardImage.src = this._link;
