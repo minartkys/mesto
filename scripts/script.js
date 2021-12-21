@@ -64,10 +64,20 @@ function handleCardFormSubmit(evt) {
   elements.prepend(
     createCard({ name: inputCardName.value, link: inputCardUrl.value })
   );
+  inputCardName.value = "";
+  inputCardUrl.value = "";
   closePopup(popupTypeCard);
 }
+function openPopupCard() {
+  openPopup(popupTypeCard);
+  const validPopupTypeCard = new FormValidator(
+    formCreateCard,
+    formValidationObject
+  );
+  validPopupTypeCard.enableValidation();
+}
 closePopupCardButton.addEventListener("click", () => closePopup(popupTypeCard));
-openPopupCardButton.addEventListener("click", () => openPopup(popupTypeCard));
+openPopupCardButton.addEventListener("click", openPopupCard);
 openPopupProfileButton.addEventListener("click", openPopupProfile);
 closePopupProfileButton.addEventListener("click", () =>
   closePopup(popupTypeEdit)
@@ -108,8 +118,8 @@ function clickEscape(evt) {
   }
 }
 
-const validPopupTypeEdit = new FormValidator(formEditProfile, formValidationObject);
+const validPopupTypeEdit = new FormValidator(
+  formEditProfile,
+  formValidationObject
+);
 validPopupTypeEdit.enableValidation();
-
-const validPopupTypeCard = new FormValidator(formCreateCard, formValidationObject);
-validPopupTypeCard.enableValidation();
