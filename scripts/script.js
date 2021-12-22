@@ -70,11 +70,7 @@ function handleCardFormSubmit(evt) {
 }
 function openPopupCard() {
   openPopup(popupTypeCard);
-  const validPopupTypeCard = new FormValidator(
-    formCreateCard,
-    formValidationObject
-  );
-  validPopupTypeCard.enableValidation();
+  validPopupTypeCard.toggleButtonState();
 }
 closePopupCardButton.addEventListener("click", () => closePopup(popupTypeCard));
 openPopupCardButton.addEventListener("click", openPopupCard);
@@ -123,3 +119,8 @@ const validPopupTypeEdit = new FormValidator(
   formValidationObject
 );
 validPopupTypeEdit.enableValidation();
+const validPopupTypeCard = new FormValidator(
+  formCreateCard,
+  formValidationObject
+);
+validPopupTypeCard.enableValidation();

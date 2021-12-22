@@ -11,9 +11,9 @@ export class Card {
       .cloneNode(true);
     return newCard;
   }
-  
+
   _deleteCard() {
-    this._element.remove()
+    this._element.remove();
     this._element = null;
   }
 
@@ -23,7 +23,9 @@ export class Card {
   _setEventListeners() {
     const buttonDeleteCard = this._element.querySelector(".element__delete");
     buttonDeleteCard.addEventListener("click", () => this._deleteCard());
-    this._cardImage.addEventListener("click", () => this._openPhoto(this._name, this._link));
+    this._cardImage.addEventListener("click", () =>
+      this._openPhoto(this._name, this._link)
+    );
     const buttonLike = this._element.querySelector(".element__like");
     buttonLike.addEventListener("click", this._likeCard);
   }
