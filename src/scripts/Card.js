@@ -1,9 +1,9 @@
 export class Card {
-  constructor(item, template, openPhoto) {
+  constructor(item, template, handleCardClick) {
     this._link = item.link;
     this._name = item.name;
     this._template = template;
-    this._openPhoto = openPhoto;
+    this._handleCardClick = handleCardClick;
   }
   _newCard() {
     const newCard = this._template.content
@@ -23,9 +23,7 @@ export class Card {
   _setEventListeners() {
     const buttonDeleteCard = this._element.querySelector(".element__delete");
     buttonDeleteCard.addEventListener("click", () => this._deleteCard());
-    this._cardImage.addEventListener("click", () =>
-      this._openPhoto(this._name, this._link)
-    );
+    this._cardImage.addEventListener("click", () => this._handleCardClick());
     const buttonLike = this._element.querySelector(".element__like");
     buttonLike.addEventListener("click", this._likeCard);
   }
