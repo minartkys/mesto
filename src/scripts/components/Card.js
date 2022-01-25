@@ -24,7 +24,7 @@ export class Card {
     const buttonDeleteCard = this._element.querySelector(".element__delete");
     buttonDeleteCard.addEventListener("click", () => this._deleteCard());
     this._cardImage.addEventListener("click", () =>
-      this._handleCardClick({link:this._link, name:this._name})
+      this._handleCardClick({ link: this._link, name: this._name })
     );
     const buttonLike = this._element.querySelector(".element__like");
     buttonLike.addEventListener("click", this._likeCard);

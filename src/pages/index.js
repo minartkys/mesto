@@ -51,22 +51,22 @@ function handleEditProfile() {
 }
 
 openPopupProfileButton.addEventListener("click", () => {
-  inputProfileName.value = newUserInfo.getUserInfo().name;
-  inputProfileJob.value = newUserInfo.getUserInfo().profession;
+  const userInfo = newUserInfo.getUserInfo();
+  inputProfileName.value = userInfo.name;
+  inputProfileJob.value = userInfo.profession;
   validPopupTypeEdit.toggleButtonState();
   popupEdit.open();
 });
 
 const popupEdit = new PopupWithForm(popupEditSelector, handleEditProfile);
 popupEdit.setEventListeners();
-closePopupProfileButton.addEventListener("click", () => popupEdit.close());
 
 const popupWithImage = new PopupWithImage(popupPhotoSelector);
 popupWithImage.setEventListeners();
+
 function openPhotoPopup({ link, name }) {
   popupWithImage.open({ link, name });
 }
-closePopupPhotoButton.addEventListener("click", () => popupWithImage.close());
 
 function createCard(item) {
   const card = new Card(item, template, openPhotoPopup);
@@ -84,21 +84,18 @@ const popupWithForm = new PopupWithForm(
   handleCardFormSubmit
 );
 popupWithForm.setEventListeners();
+
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
   cardSection.addItem(
     createCard({ name: inputCardName.value, link: inputCardUrl.value })
   );
-  inputCardName.value = "";
-  inputCardUrl.value = "";
   popupWithForm.close();
 }
 openPopupCardButton.addEventListener("click", () => {
   popupWithForm.open();
   validPopupTypeCard.toggleButtonState();
 });
-
-closePopupCardButton.addEventListener("click", () => popupWithForm.close());
 
 const validPopupTypeEdit = new FormValidator(
   formEditProfile,

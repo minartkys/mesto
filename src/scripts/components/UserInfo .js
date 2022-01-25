@@ -13,5 +13,5 @@ export class UserInfo {
   setUserInfo(name, profession) {
     this._profileName.textContent = name;
     this._profileProfession.textContent = profession;
-  } 
+  }
 }
