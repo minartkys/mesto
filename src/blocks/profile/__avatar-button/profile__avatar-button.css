@@ -17,7 +17,7 @@
 }
 @media (max-width: 768px) {
   .profile__avatar-button {
-    left: calc(50%-61px);
+    left: calc(50% - 61px);
   }
 }
 .profile__avatar-button:hover {
