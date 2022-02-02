@@ -4,6 +4,7 @@ export class Popup {
     this._closeButton = this._popup.querySelector(".popup__button-close");
     this._handleEscClose = this._handleEscClose.bind(this);
     this._handleOverlayClose = this._handleOverlayClose.bind(this);
+    this._submitButton = this._popup.querySelector(".popup__button-save");
   }
   open() {
     this._popup.classList.add("popup_opened");
@@ -18,6 +19,14 @@ export class Popup {
       this.close();
     }
   }
+  loading(boolean) {
+    if (boolean) {
+      this._submitButton.textContent = "Сохранение...";
+    } else {
+      this._submitButton.textContent = "Сохранить";
+    }
+  }
+
   _handleOverlayClose(evt) {
     if (evt.target.classList.contains("popup_opened")) {
       this.close();
